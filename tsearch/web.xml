@@ -1,0 +1,907 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app xmlns='http://caucho.com/ns/resin'>
+	<jsp el-ignored="false" fast-jstl="false" />
+	
+	<servlet>
+		<servlet-name>MultiDocSave</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.MultiDocSave</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ParentSiteActions</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.parentsite.ParentSiteActions</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DocTypeServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.DocTypeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MaintenanceMessageServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.MaintenanceMessageServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MessageReceiverServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.MessageReceiverServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchPageActions</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.searchpage.SearchPageActions</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TestCaseFileServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.TestCaseFileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateArea</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.update.UpdateArea</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FixTemplates</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.repair.FixTemplates</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetImagefromDisk</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.GetImagefromDisk</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DBFileView</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.DBFileView</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DownloadFileAs</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.DownloadFileAs</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateTSRIndex</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.titledocument.UpdateTSRIndex</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AutomaticSearch</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.AutomaticSearch</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SaveTestCase</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.SaveTestCase</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DistributedMutex</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.DistributedMutex</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SessionSetServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.SessionSetServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SearchSitesServer</servlet-name>
+		<servlet-class>ro.cst.tsearch.searchsites.server.SearchSitesServer</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>TemplatesServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.TemplatesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TSDTemplateServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.TSDTemplateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TsdIndexPageServer</servlet-name>
+		<servlet-class>com.stewart.ats.tsrindex.server.TsdIndexPageServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchPageServer</servlet-name>
+		<servlet-class>com.stewart.ats.searchPage.server.SearchPageServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ImageCountPageServer</servlet-name>
+		<servlet-class>com.stewart.ats.gwtpages.imagecount.server.ImageCountPageServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserProfilePageServer</servlet-name>
+		<servlet-class>com.stewart.ats.user.profile.server.UserProfilePageServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AssignPageServer</servlet-name>
+		<servlet-class>com.stewart.ats.user.assign.server.AssignPageServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ParentSiteServer</servlet-name>
+		<servlet-class>com.stewart.ats.parentsite.server.ParentSiteServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SmartUploadServer</servlet-name>
+		<servlet-class>com.stewart.ats.smartupload.server.SmartUploadServer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DocumentDataRetreiver</servlet-name>
+		<servlet-class>com.stewart.ats.tsrindex.server.DocumentDataRetreiver</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DocumentDataBootstrap</servlet-name>
+		<servlet-class>com.stewart.ats.tsrindex.server.DocumentDataBootstrap</servlet-class> 
+	</servlet>
+	<servlet>
+		<servlet-name>UploadImage</servlet-name>
+		<servlet-class>com.stewart.ats.tsrindex.server.UploadImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadTemplate</servlet-name>
+		<servlet-class>com.stewart.ats.tsrindex.server.UploadTemplate</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ParentSiteLoadTemplate</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.dasl.ParentSiteLoadTemplate</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EmptyTemplateEditServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.EmptyTemplateEditServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CheckAvailabilityServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.CheckAvailabilityServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OpenTestCase</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.OpenTestCase</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>ConvertToPdf</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.ConvertToPdf</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AskResponse</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.AskResponse</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AskTest</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.AskTest</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>SendEmailServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.SendEmailServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SendXMLParam</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.SendXMLParam</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CompanyException.xml</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.CompanyExceptionServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>presenceTestServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.presenceTestServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>StartTS</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.StartTS</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>TSD</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.TSD</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>URLConnectionReader</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.URLConnectionReader</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ValidateInputs</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.ValidateInputs</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>BarChart</servlet-name>
+		<servlet-class>ro.cst.tsearch.reports.graph.BarChartServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Invoice</servlet-name>
+		<servlet-class>ro.cst.tsearch.reports.invoice.InvoiceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UpdateInvoice</servlet-name>
+		<servlet-class>ro.cst.tsearch.reports.invoice.UpdateInvoiceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UpdateReports</servlet-name>
+		<servlet-class>ro.cst.tsearch.reports.invoice.UpdateReportServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AdminSettings</servlet-name>
+		<servlet-class>ro.cst.tsearch.settings.AdminSettingsServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>CheckDocTypeXML</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.CheckDocTypeXML</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>TSDFileServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.tsr.TSDFileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ArchiveDownload</servlet-name>
+		<servlet-class>ro.cst.tsearch.Archive.ArchiveDownload</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ArchiveDaemon</servlet-name>
+		<servlet-class>ro.cst.tsearch.Archive.ArchiveDaemon</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>initContext</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.InitContext</servlet-class>
+
+		<init-param>
+			<param-name>log4j-init-file-path</param-name>
+			<param-value>WEB-INF/classes/</param-value>
+		</init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>loginDispacher</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.LoginDispacher</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ParentSiteDocumentChecker</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.ParentSiteDocumentChecker</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>InitContext</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.InitContext</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.Logout</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SendScreenViaEmail</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.SendScreenViaEmail</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UserDispacher</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.UserDispacher</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ChangeContext</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.ChangeContext</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RedirectContext</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.RedirectContext</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UserAdmin</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.UserAdmin</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UserList</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.UserListServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DownloadLogo</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.community.DownloadLogo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CommunityDispacher</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.community.CommunityDispacher</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DownloadFile</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.download.DownloadFile</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CommUploadPolicy</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.community.UploadPolicyDoc</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ContactUs</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.ContactUs</servlet-class>
+	</servlet>
+
+	<!--
+		<servlet> <servlet-name>UpdateBeanIndex</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.UpdateBeanIndex</servlet-class>
+		</servlet>
+	-->
+	<servlet>
+		<servlet-name>fs</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.FileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ThroughputServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.reports.throughputs.ThroughputServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ChartViewer</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.ChartViewer</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LoadBalancingServlet</servlet-name>
+		<servlet-class>ro.cst.tsearch.loadBalServ.LoadBalancingServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GenericNameFilterTestCalculate</servlet-name>
+		<servlet-class>ro.cst.tsearch.search.filter.testnamefilter.GenericNameFilterTestCalculate</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GlobalTemplatesView</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.templates.GlobalTemplatesView</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GlobalTemplates</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.templates.GlobalTemplates</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ManageCountyList</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.user.ManageCountyList</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ReuseSearch</servlet-name>
+		<servlet-class>ro.cst.tsearch.servlet.titledocument.ReuseSearch</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>TestToolsServer</servlet-name>
+		<servlet-class>com.stewart.ats.testTools.server.TestToolsServer</servlet-class>
+	</servlet>
+	
+	<!--
+		==================================================================
+	-->
+	
+	<servlet-mapping>
+		<servlet-name>MultiDocSave</servlet-name>
+		<url-pattern>/MultiDocSave</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ParentSiteActions</servlet-name>
+		<url-pattern>/ParentSiteActions</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchPageActions</servlet-name>
+		<url-pattern>/SearchPageActions</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>TestCaseFileServlet</servlet-name>
+		<url-pattern>/TestCaseFileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UpdateArea</url-pattern>
+		<servlet-name>UpdateArea</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/FixTemplates</url-pattern>
+		<servlet-name>FixTemplates</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/fs</url-pattern>
+		<servlet-name>fs</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DownloadFileAs</url-pattern>
+		<servlet-name>DownloadFileAs</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DBFileView</url-pattern>
+		<servlet-name>DBFileView</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/GetImagefromDisk</url-pattern>
+		<servlet-name>GetImagefromDisk</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UpdateTSRIndex</url-pattern>
+		<servlet-name>UpdateTSRIndex</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/AutomaticSearch</url-pattern>
+		<servlet-name>AutomaticSearch</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SaveTestCase</url-pattern>
+		<servlet-name>SaveTestCase</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DistributedMutex</url-pattern>
+		<servlet-name>DistributedMutex</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SessionSetServlet</url-pattern>
+		<servlet-name>SessionSetServlet</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/TemplatesServlet</url-pattern>
+		<servlet-name>TemplatesServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/presenceTestServlet</url-pattern>
+		<servlet-name>presenceTestServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TSDTemplateServlet</servlet-name>
+		<url-pattern>/TSDTemplateServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TsdIndexPageServer</servlet-name>
+		<url-pattern>/TsdIndexPageServer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SearchPageServer</url-pattern>
+		<servlet-name>SearchPageServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ImageCountPageServer</url-pattern>
+		<servlet-name>ImageCountPageServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UserProfilePageServer</url-pattern>
+		<servlet-name>UserProfilePageServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/AssignPageServer</url-pattern>
+		<servlet-name>AssignPageServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ParentSiteServer</url-pattern>
+		<servlet-name>ParentSiteServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SmartUploadServer</url-pattern>
+		<servlet-name>SmartUploadServer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DocumentDataRetreiver</url-pattern>
+		<servlet-name>DocumentDataRetreiver</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DocumentDataBootstrap</servlet-name>
+		<url-pattern>/DocumentDataBootstrap</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UploadImage</url-pattern>
+		<servlet-name>UploadImage</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UploadTemplate</url-pattern>
+		<servlet-name>UploadTemplate</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ParentSiteLoadTemplate</url-pattern>
+		<servlet-name>ParentSiteLoadTemplate</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/EmptyTemplateEditServlet</url-pattern>
+		<servlet-name>EmptyTemplateEditServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SearchSitesServer</url-pattern>
+		<servlet-name>SearchSitesServer</servlet-name>
+	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<url-pattern>/CheckAvailabilityServlet</url-pattern>
+		<servlet-name>CheckAvailabilityServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/OpenTestCase</url-pattern>
+		<servlet-name>OpenTestCase</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ConvertToPdf</url-pattern>
+		<servlet-name>ConvertToPdf</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/AskResponse</url-pattern>
+		<servlet-name>AskResponse</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/AskTest</url-pattern>
+		<servlet-name>AskTest</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SendEmailServlet</url-pattern>
+		<servlet-name>SendEmailServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/CompanyException.xml</url-pattern>
+		<servlet-name>CompanyException.xml</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SendXMLParam</url-pattern>
+		<servlet-name>SendXMLParam</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DocTypeServlet</url-pattern>
+		<servlet-name>DocTypeServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/MaintenanceMessageServlet</url-pattern>
+		<servlet-name>MaintenanceMessageServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/MessageReceiverServlet</url-pattern>
+		<servlet-name>MessageReceiverServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/StartTS</url-pattern>
+		<servlet-name>StartTS</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/TSD</url-pattern>
+		<servlet-name>TSD</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ArchiveDownload</url-pattern>
+		<servlet-name>ArchiveDownload</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/URLConnectionReader</url-pattern>
+		<servlet-name>URLConnectionReader</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/ValidateInputs</url-pattern>
+		<servlet-name>ValidateInputs</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/BarChart</url-pattern>
+		<servlet-name>BarChart</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/Invoice</url-pattern>
+		<servlet-name>Invoice</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UpdateInvoice</url-pattern>
+		<servlet-name>UpdateInvoice</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UpdateReports</url-pattern>
+		<servlet-name>UpdateReports</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/AdminSettings</url-pattern>
+		<servlet-name>AdminSettings</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/CheckDocTypeXML</url-pattern>
+		<servlet-name>CheckDocTypeXML</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/TSDFileServlet</url-pattern>
+		<servlet-name>TSDFileServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/loginDispacher</url-pattern>
+		<servlet-name>loginDispacher</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ParentSiteDocumentChecker</url-pattern>
+		<servlet-name>ParentSiteDocumentChecker</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/InitContext</url-pattern>
+		<servlet-name>InitContext</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/Logout</url-pattern>
+		<servlet-name>Logout</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/SendScreenViaEmail</url-pattern>
+		<servlet-name>SendScreenViaEmail</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UserDispacher</url-pattern>
+		<servlet-name>UserDispacher</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ChangeContext</url-pattern>
+		<servlet-name>ChangeContext</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/RedirectContext</url-pattern>
+		<servlet-name>RedirectContext</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UserAdmin</url-pattern>
+		<servlet-name>UserAdmin</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/UserList</url-pattern>
+		<servlet-name>UserList</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DownloadLogo</url-pattern>
+		<servlet-name>DownloadLogo</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/CommunityDispacher</url-pattern>
+		<servlet-name>CommunityDispacher</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/DownloadFile</url-pattern>
+		<servlet-name>DownloadFile</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/CommUploadPolicy</url-pattern>
+		<servlet-name>CommUploadPolicy</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ContactUs</url-pattern>
+		<servlet-name>ContactUs</servlet-name>
+	</servlet-mapping>
+	<!--
+		<servlet-mapping> <url-pattern>/UpdateBeanIndex</url-pattern>
+		<servlet-name>UpdateBeanIndex</servlet-name> </servlet-mapping>
+	-->
+	<servlet-mapping>
+		<url-pattern>/ThroughputServlet</url-pattern>
+		<servlet-name>ThroughputServlet</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ChartViewer</url-pattern>
+		<servlet-name>ChartViewer</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/LoadBalancingServlet</url-pattern>
+		<servlet-name>LoadBalancingServlet</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/GenericNameFilterTestCalculate</url-pattern>
+		<servlet-name>GenericNameFilterTestCalculate</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/GlobalTemplates</url-pattern>
+		<servlet-name>GlobalTemplates</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/GlobalTemplatesView</url-pattern>
+		<servlet-name>GlobalTemplatesView</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ManageCountyList</url-pattern>
+		<servlet-name>ManageCountyList</servlet-name>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<url-pattern>/ReuseSearch</url-pattern>
+		<servlet-name>ReuseSearch</servlet-name>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<url-pattern>/TestToolsServer</url-pattern>
+		<servlet-name>TestToolsServer</servlet-name>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+
+	<taglib>
+		<taglib-uri>taglib.tld</taglib-uri>
+		<taglib-location>/WEB-INF/taglib.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>parent.tld</taglib-uri>
+		<taglib-location>/WEB-INF/parent.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>utils.tld</taglib-uri>
+		<taglib-location>/WEB-INF/utils.tld</taglib-location>
+	</taglib>
+	<!--  AXIS WEB SERVICES START -->
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+	<servlet>
+		<servlet-name>ToAtsWebService</servlet-name>
+		<servlet-class>
+			ro.cst.tsearch.servlet.ToAtsWebService
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ToAtsWebService</servlet-name>
+		<!--  <url-pattern>/services/Ats</url-pattern> -->
+		<url-pattern>/services/Ats2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToAtsWebService</servlet-name>
+		<url-pattern>/services/Ats</url-pattern>
+		<!--  <url-pattern>/services/Ats2</url-pattern> -->
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>
+			org.apache.axis2.transport.http.AxisServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/AtsService</url-pattern>
+		<!--  <url-pattern>/services/Ats2Service</url-pattern> -->
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<!-- <url-pattern>/services/AtsService</url-pattern> -->
+		<url-pattern>/services/Ats2Service</url-pattern>
+	</servlet-mapping>
+	<!--  AXIS WEB SERVICES END -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>declarative security test</web-resource-name>
+			<url-pattern>/Secureservlet</url-pattern>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>supervisor</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/formlogin.html</form-login-page>
+			<form-error-page>/formerror.html</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<role-name>supervisor</role-name>
+	</security-role>
+
+	<mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
+    
+	<filter>
+		<filter-name>Compress</filter-name>
+		<filter-class>com.jspbook.GZIPFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>Authentication</filter-name>
+		<filter-class>com.stewart.ats.generic.filter.AuthFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>Security</filter-name>
+		<filter-class>com.stewart.ats.generic.filter.SecurityFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>Logging</filter-name>
+		<filter-class>com.stewart.ats.generic.filter.LoggingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*/loginDispacher</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*/fs*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*.xml</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>*/jsp/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>/AdminSettings</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>/ReuseSearch</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Logging</filter-name>
+		<url-pattern>*/tsdindexpage.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>/ThroughputServlet</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Authentication</filter-name>
+		<url-pattern>/UserList</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Security</filter-name>
+		<url-pattern>*/jsp/*</url-pattern>
+		<url-pattern>/servlet/*</url-pattern>
+		<url-pattern>/AdminSettings</url-pattern>
+		<url-pattern>/ReuseSearch</url-pattern>
+		<url-pattern>/ThroughputServlet</url-pattern>
+	</filter-mapping>
+	
+	
+</web-app>

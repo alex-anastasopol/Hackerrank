@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<title>refriendly</title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name="CODE_LANGUAGE" content="Visual Basic .NET 7.1">
+<meta name="vs_defaultClientScript" content="JavaScript">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</HEAD>
+<body MS_POSITIONING="GridLayout"> 
+
+<!--table cellSpacing="0" cellPadding="0" width="100%" border="0"> <tr> 
+	<td vAlign="top"> 
+    <table cellSpacing="0" cellPadding="0" width="100%" border="0"> 
+    <tr vAlign="top"> 
+        <td width="100%" height="36"> <DIV align="center"><font color="#ff0000">THE ACCOUNT DETAILS AND TAX BILL ARE UPDATED NIGHTLY.</font><br> 
+            INFORMATIONAL PURPOSES ONLY—THIS IS NOT A TAX BILL</DIV> 
+        <DIV align="center"> <br> &nbsp;</DIV></td> 
+      </tr> 
+  </table--> 
+
+  <table cellSpacing="0" cellPadding="0" width="100%" border="0"> 
+    <tr> 
+      <td vAlign="top" height="211"> <div align="left"> 
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0"> 
+            <tr> 
+              <td vAlign="top" width="55%" height="204"> <table height="103" cellSpacing="0" cellPadding="0" width="92%" border="0"> 
+                  <tr bgColor="#000066"> 
+                    <td class="LargeHeading" colSpan="4"> <div align="center"><font color="#ffffff">Real Estate Detail</font></div></td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td width="1%">&nbsp;</td> 
+                    <td width="29%" height="19"><font color="#333333">Property Number: </font> </td> 
+                    <td width="68%"> <div align="right"><font color="#333333"><span id="lblPropertyNumber">EP90000003 0005</span></font></div></td> 
+                    <td width="2%">&nbsp;</td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td>&nbsp;</td> 
+                    <td height="12"><font color="#333333">Bill Number:</font></td> 
+                    <td> <div align="right"><font color="#333333"><span id="lblBillNumber">11040237477</span></font></div></td> 
+                    <td>&nbsp;</td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td height="12">&nbsp;</td> 
+                    <td><font color="#333333">&nbsp;</font></td> 
+                    <td> <div align="right"><font color="#ffffff"><font color="#333333"></font></font>&nbsp;</div></td> 
+                    <td>&nbsp;</td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td>&nbsp;</td> 
+                    <td height="12"><font color="#333333">Location:</font></td> 
+                    <td> <div align="right"><font color="#333333"> 
+                        <DIV align="right"><FONT color="#ffffff"><FONT color="#333333"><span id="lblLocation">100 S MAIN ST</span></FONT></FONT></DIV> 
+                        </font> </div></td> 
+                    <td>&nbsp;</td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td height="12">&nbsp;</td> 
+                    <td><font color="#333333">&nbsp;</font></td> 
+                    <td> <div align="right"><font color="#333333"></font>&nbsp;</div></td> 
+                    <td>&nbsp;</td> 
+                  </tr> 
+                  <tr class="SmallContent" bgColor="#cccccc"> 
+                    <td>&nbsp;</td> 
+                    <td height="19"><font color="#333333">Tax District:</font></td> 
+                    <td> <div align="right"><font color="#333333"><span id="lblTaxDistrict">0010</span></font></div></td> 
+                    <td>&nbsp;</td> 
+                  </tr> 
+                </table> 
+                <br> 
+                <table borderColor="#000000" cellSpacing="0" cellPadding="0" width="92%" border="1"> 
+                  <tr class="SmallHeading"> 
+                    <td width="50"> <div align="center">Tax year</div></td> 
+                    <td width="75"> <div align="center">Amount Paid</div></td> 
+                    <td width="75"> <div align="center">Half Due</div></td> 
+                    <td width="75"> <div align="center">Full Due</div></td> 
+                    <td width="75"> <div align="center">Interest Due</div></td> 
+                    <td width="75"> <div align="center">Fees Due</div></td> 
+                  </tr> 
+                  <tr class="SmallContent"> 
+                    <td height="22"> <div align="center"><span id="lblTaxYear">2004</span></div></td> 
+                    <td> <div align="center"><span id="lblAmountPaid">$787.86</span></div></td> 
+                    <td> <div align="center"><span id="lblHalfPayment">$0.00</span></div></td> 
+                    <td> <div align="center"><span id="lblFullPayment">$0.00</span></div></td> 
+                    <td> <div align="center"><span id="lblInterestDue">$0.00</span></div></td> 
+                    <td> <div align="center"><span id="lblFeesDue">$0.00</span></div></td> 
+                  </tr> 
+                </table> 
+                <div align="center"><br> 
+                  <span class="WarningText"> <span id="lblDelinquentFlag" style="color:Red;font-weight:bold;"></span><br> 
+                  <br> 
+                  </span> </div></td> 
+              <td vAlign="top" width="45%"> <table borderColor="#000000" cellSpacing="0" cellPadding="0" width="100%" border="1"> 
+                  <tr> 
+                    <td> <table cellSpacing="0" cellPadding="0" width="100%" border="0"> 
+                        <tr> 
+                          <td colSpan="3"> <div class="LargeHeading" align="center">Mill Levy</div></td> 
+                        </tr> 
+                        <tr> 
+                          <td colSpan="3"> <table id="tblMillLevy" cellspacing="0" cellpadding="2" border="0" style="width:100%;border-collapse:collapse;"> 
+                              <tr> 
+                                <td><pre>Tax Authority  Rate   Tax Amount</pre></td> 
+                              </tr> 
+                              <tr> 
+                                <td><pre>STATE OF KS   1.5000        8.52
+JOHNSON CO   16.0410       91.15
+COMM CLGE     9.4380       53.64
+JO CO PARK    2.3670       13.45
+SP HILL CIT  35.5810      202.21
+SP TWP GEN                   .00
+230 UNIFIED  23.7780      135.14
+230 SCH GEN  20.0000      113.66
+230 BOND     26.9750      153.30
+JO CO LIB     2.9560       16.79
+</pre></td> 
+                              </tr> 
+                            </table></td> 
+                        </tr> 
+                      </table></td> 
+                  </tr> 
+                </table> 
+                <br> 
+                <table cellspacing=0 cellpadding=0 border=1 width=100% borderColor="#000000"> 
+                  <tr> 
+                    <td> <TABLE width="100%"> 
+                        <TR> 
+                          <TD>Half Tax:</TD> 
+                          <TD align="right"> <span id="lblHalfTax">$393.93</span></TD> 
+                        </TR> 
+                        <TR> 
+                          <TD>Full Tax:</TD> 
+                          <TD align="right"> <span id="lblFullTax">$787.86</span></TD> 
+                        </TR> 
+                      </TABLE></td> 
+                  </tr> 
+                </table> 
+                <br> </td> 
+            </tr> 
+          </table> 
+        </div></td> 
+    </tr> 
+  </table> 
+  
+  
+  
+  
+  <!--table cellSpacing="0" cellPadding="0" width="100%" border="0"> <tr> 
+     <td vAlign="top" width="55%"> 
+      <div align="center"> 
+       <table cellSpacing="0" cellPadding="0" width="100%" border="0"> </table> 
+    <TABLE cellSpacing="0" cellPadding="0" width="97%" align="center" border="0"> 
+      <TR> 
+        <TD class="LargeHeading" width="0%">&nbsp;</TD> 
+        <TD class="LargeHeading" width="0%">&nbsp;</TD> 
+        <TD class="LargeHeading" bgColor="#000066" height="19"> <DIV align="center"><FONT color="#ffffff">Print your tax bill online!</FONT></DIV></TD> 
+        <TD class="LargeHeading" bgColor="#000066" height="19">&nbsp;</TD> 
+        <TD class="LargeHeading" width="8%" height="19">&nbsp;</TD> 
+      </TR> 
+      <TR> 
+       <TD height="40">&nbsp;</TD> 
+      <TD>&nbsp;</TD> 
+      <form name="frmViewPDF" method="post" action="refriendly.aspx?parcelID=EP90000003+0005&amp;taxYear=2004" id="frmViewPDF"> 
+        <input type="hidden" name="__VIEWSTATE" value="dDwxOTkzNzQ2MjI7dDw7bDxpPDE+O2k8Mz47aTw1PjtpPDc+O2k8OT47aTwxMT47aTwxMz47aTwxNT47aTwxNz47aTwxOT47aTwyNT47aTwyNz47aTwyOT47PjtsPHQ8cDxwPGw8VGV4dDs+O2w8RVA5MDAwMDAwMyAwMDA1Oz4+Oz47Oz47dDxwPHA8bDxUZXh0Oz47bDwxMTA0MDIzNzQ3Nzs+Pjs+Ozs+O3Q8cDxwPGw8VGV4dDs+O2w8MTAwIFMgIE1BSU4gU1Q7Pj47Pjs7Pjt0PHA8cDxsPFRleHQ7PjtsPDAwMTA7Pj47Pjs7Pjt0PHA8cDxsPFRleHQ7PjtsPDIwMDQ7Pj47Pjs7Pjt0PHA8cDxsPFRleHQ7PjtsPCQ3ODcuODY7Pj47Pjs7Pjt0PHA8cDxsPFRleHQ7PjtsPCQwLjAwOz4+Oz47Oz47dDxwPHA8bDxUZXh0Oz47bDwkMC4wMDs+Pjs+Ozs+O3Q8cDxwPGw8VGV4dDs+O2w8JDAuMDA7Pj47Pjs7Pjt0PHA8cDxsPFRleHQ7PjtsPCQwLjAwOz4+Oz47Oz47dDxwPHA8bDxUZXh0Oz47bDwkMzkzLjkzOz4+Oz47Oz47dDxwPHA8bDxUZXh0Oz47bDwkNzg3Ljg2Oz4+Oz47Oz47dDw7bDxpPDM+Oz47bDx0PHA8cDxsPFZpc2libGU7PjtsPG88Zj47Pj47Pjs7Pjs+Pjs+Pjs+75H5c8D9VL/1C/dcZM4OA/kzoRg=" /> 
+        <TD vAlign="middle" align="center" width="83%" bgColor="#cccccc"><BR> 
+          <input type="submit" name="btnViewPDF" value="View PDF" id="btnViewPDF" /> 
+          <SPAN class="Content"><BR> 
+          </SPAN><SPAN class="SmallContent">Click here to generate a printable bill.</SPAN> </TD> 
+        <TD class="Content" vAlign="middle" align="center" width="9%" bgColor="#cccccc"><IMG height="31" src="images/adobe_logo.jpg" width="25"></TD> 
+        <TD>&nbsp;</TD> 
+        </TR> 
+         <TR> 
+          <TD vAlign="top">&nbsp;</TD> 
+          <TD vAlign="top">&nbsp;</TD> 
+          <TD vAlign="top" colSpan="3" height="95"> <DIV align="center"> 
+             <SPAN class="Content"><BR> 
+            </SPAN> 
+             <TABLE cellSpacing="0" cellPadding="0" width="100%" border="0"> 
+             <TR> 
+              <TD vAlign="top" height="74"> <DIV class="LargeHeading" align="center"> 
+       </form> 
+      </DIV> 
+       </TD> 
+        </TR> 
+         </TABLE> 
+    </DIV> 
+     </TD> 
+      </TR> 
+       </TABLE> 
+  <br> 
+  </div> 
+   </td> 
+    <td vAlign="top" width="45%"> <table borderColor="#333333" cellSpacing="0" cellPadding="0" width="100%" align="right"
+									border="0"> 
+        <tr class="SmallContent" vAlign="top"> 
+          <td colSpan="4" height="22"><table id="tblClass" cellspacing="0" cellpadding="2" border="0" style="width:100%;border-collapse:collapse;"> 
+              <tr> 
+                <td>Class</td> 
+                <td>Land Assessed Value</td> 
+                <td>Improvement</td> 
+              </tr> 
+              <tr> 
+                <td>C </td> 
+                <td>1,040</td> 
+                <td>4,643</td> 
+              </tr> 
+            </table> 
+            <br> 
+            <table id="tblLegal" cellspacing="0" cellpadding="2" border="0" style="width:100%;border-collapse:collapse;"> 
+              <tr> 
+                <td>&nbsp;</td> 
+                <td colspan="2">Appraised Agricultural Use Acreage: 0</td> 
+              </tr> 
+              <tr> 
+                <td>Legal:</td> 
+                <td>SPRAGUES ADDITION LTS 5 & 6</td> 
+              </tr> 
+              <tr> 
+                <td>&nbsp;</td> 
+                <td>BLK 3 EX BG NW CR LT 6 S</td> 
+              </tr> 
+              <tr> 
+                <td>&nbsp;</td> 
+                <td>15.40' E 42.52' SE 8.27' TO</td> 
+              </tr> 
+              <tr> 
+                <td>&nbsp;</td> 
+                <td>E/L LT 5 N 19.56' W 50' TO POB</td> 
+              </tr> 
+              <tr> 
+                <td>&nbsp;</td> 
+                <td>SPC 1021</td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> </table> 
+<P>&nbsp;</P> 
+<P>&nbsp;</P> 
+</td> 
+</tr> 
+</table--> 
+  
+  
+
+</body>
+</HTML>

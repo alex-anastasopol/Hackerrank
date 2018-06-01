@@ -1,0 +1,113 @@
+(function(b){var d=window.$||b("jquery"),c=function(i){var e="[\\?&]"+i+"=([^&]*)",h=new RegExp(e),g=window.location.search,f=h.exec(g);
+return(f&&f[1])
+};
+var a=function(f,n){var g="",s="_",k="-",h=n||{},o=h.origin||g,m=h.trackingUrl,i=h.impressionId||d(f).find("[name=abookImportImpressionId]").val()||g,q=c("trk")||g,r;
+if(!m||!i){return
+}else{if(q){m=m+"&trk="+q
+}}function e(u,v,t,x,w,z){var y={source:u,autofilledEmail:v,autoselectedEmailProvider:t,orderOfEmailProviders:x,socialProofType:w,socialProofCount:z,impressionId:i};
+d.ajax({type:"POST",url:m,headers:{"X-IsAJAXForm":1},data:y})
+}function j(){var t=d("#addconnections .providers,#addconnections .emailProviders"),u=[];
+if(t.length){t.find(">li").each(function(){u.push(d.trim(d(this).attr("class").replace("one-click",g)))
+});
+e(o,g,g,u.toString(),g,g)
+}}function l(){var u=d('input[name="email"]').val(),w=d(".wmi-katy"),t=w.length&&w.hasClass("social"),x=0,v=g;
+if(t){x=w.find(".profile-pics img").length;
+v=d.trim(w[0].className.replace(/\bwmi-katy\b|\s\bsocial\b/gi,g))
+}e(o,u,g,g,v,x)
+}function p(){var t="li-origin",v=[],w=g,u=d('.service-forms .selected input[name="email"]').val();
+w=d(".service-filters > li.selected").data(t)||g;
+d(".service-filters > li").each(function(){v.push(d(this).data(t))
+});
+e(o,u,w,v.toString(),g,g)
+}o=o.toLowerCase().replace(s,k);
+r=o+i;
+if(o&&!a[r]){a[r]=true;
+switch(o){case"desktop-global-nav-add-connections-dropdown":j();
+break;
+case"desktop-add-connections-v2":p();
+break;
+default:l();
+break
+}}};
+LIModules.exports("AbookExpandedTracking",a)
+}(window.require));LI.define("Login");
+LI.Login=function(b,c){c=c||{};
+c={autoFocus:(c.autoFocus!==false)?true:false,disableSubmit:c.disableSubmit||false,submitId:c.submitId||"btn-login",showErrorOnLoad:c.showErrorOnLoad||false,errorOnLoadMessage:c.errorOnLoadMessage||"",resetPasswordURL:c.resetPasswordURL||"",passwordReminderMessage:c.passwordReminderMessage||"",domainSuggestion:c.domainSuggestion||""};
+var i=YDom.getElementsBy(function(m){return(m.type==="text"||m.type==="password")
+},"input",b),h=YDom.getElementsBy(function(m){return m
+},"label",b),k=i?i.length:0,f=h?h.length:0,d=YDom.get(c.submitId);
+function e(){for(var n=0,m=i.length;
+n<m;
+n++){if(i[n].value===""&&i[n].tabIndex>=0){i[n].focus();
+break
+}}}function a(){var n=document.getElementById("domainSuggestion"),m=document.getElementById("suggestion"),o=document.getElementById("mini-profile--js").firstElementChild;
+YDom.addClass(o,"wp-margin");
+YDom.removeClass(n,"hide");
+m.innerHTML=LI.htmlEncode(c.domainSuggestion)
+}function g(){if(i[0].value!==""&&i[1].value!==""){var o=[],m;
+if(f===1||f===2){for(var n=0;
+n<f;
+n++){m=h[n];
+o[n]=(YDom.get(m.htmlFor).value===m.firstChild.nodeValue)
+}d.disabled=(o.length===1?o[0]:o[0]||o[1])
+}}else{d.disabled=true
+}}function j(){var n={},p,q,s,o,m,r;
+n["session_password-login"]=c.errorOnLoadMessage;
+for(p=0,o=YDom.getElementsByClassName("error","span"),m=o.length;
+p<m;
+p++){r=o[p];
+q=r.id.replace(/-error$/,"");
+if(n[q]){r.innerHTML=n[q]+'<a class="reg-autologin-error" id="password-reminder" href="'+c.resetPasswordURL+'">'+c.passwordReminderMessage+"</a>"+"<br>"
+}else{r.innerHTML=""
+}}s=YDom.get("session_password-login");
+YDom.addClass(s,"error");
+s.focus()
+}if(c.autoFocus){e()
+}if(c.disableSubmit){g();
+var l=setInterval(g,100)
+}if(c.showErrorOnLoad){j()
+}if(c.domainSuggestion){a()
+}YEvent.onDOMReady(function(q){var n=YDom.get("password-reminder"),p=n.href,o=YDom.get("session_key-login");
+function m(r){var s=o.value;
+YEvent.getTarget(r).href=(LI.patterns.email.test(s))?LI.addParams(p,{"email":s}):p
+}YEvent.addListener(n,"click",m,true)
+})
+};
+(function(){function a(){var e,c,f=["recaptcha_reload_btn","recaptcha_switch_audio_btn","recaptcha_switch_img_btn","recaptcha_whatsthis_btn"],d,b=f.length;
+for(d=0;
+d<b;
+d++){e=f[d];
+c=YDom.get(e);
+if(c){c.setAttribute("href","#")
+}}}YEvent.onContentReady("recaptcha_reload_btn",a)
+})();var langSwitch=function(){var c;
+function b(){var j;
+var g=YDom.get("nav-utility-lang");
+var h=g.getElementsByTagName("a");
+YEvent.on(g,"click",function(){var i=this;
+if(YDom.hasClass(i,"hover")){return
+}j=setTimeout(function(){YDom.addClass(i,"hover")
+},0)
+});
+YEvent.on(g,"mouseout",function(k){var l=this;
+var i=YEvent.getRelatedTarget(k);
+if(l!=i&&!YDom.isAncestor(l,i)){YDom.removeClass(l,"hover")
+}clearTimeout(j)
+});
+h[0].onclick=function(){return false
+};
+var d=YDom.get("lang-list");
+var f=d.getElementsByTagName("a");
+for(var e=0;
+f.length>e;
+e++){f[e].onclick=function(){a(this.lang);
+return false
+}
+}}function a(d){c.i18nLang.value=d;
+c.submit()
+}return{init:function(){if(!document.languageSelectorForm){return false
+}c=document.languageSelectorForm;
+b()
+}}
+}();
+YEvent.on(window,"load",langSwitch.init);

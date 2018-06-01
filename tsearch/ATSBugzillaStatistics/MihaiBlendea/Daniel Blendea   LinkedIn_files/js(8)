@@ -1,0 +1,341 @@
+$(function(){var n=$("#wrapper"),r=$("#profile"),K=$("#promo-slot-top"),J=$(window),ad,I,o,P=!!$(".profile-self-view-edit").length,ac,p,ae,N="profile",T=$("#top-card-guided-edit-btn"),b=T.data("li-form-url"),k=T.data("li-section-url"),u="guided-edit-profile",L="guided-edit-promo-profile",v="nprofile_v2_view_fs",V="nprofile_v2_edit_fs",Q="nprofile_v2_guided_edit_fs",s="full_page",G=["profile_v2_connections","profile_v2_groups","profile_v2_follow"],C=["profile_v2_connections","profile_v2_groups","profile_v2_follow"],ah="profile_v2_background",h={SWITCH_EDIT:"switch-edit",SWITCH_VIEW:"switch-view",SWITCH_EDIT_ON_LOAD:"switch-edit-on-load",BEFORE_SWITCH_VIEW:"before-switch-view",FORM_OPENED:"form-opened",FORM_CLOSED:"form-closed",FORM_MODIFIED:"form-modified",RENDER_DEFERRED_SECTIONS:"render-deferred-sections",DEFERRED_SECTIONS_RENDERED:"deferred-sections-rendered",PROFILE_UPDATE_SUCCESS:"profile-update-success",TIMESTAMP_CHANGED:"timestamp-changed"},S={SKIL:"background-skills",SUM:"background-summary",EXP:"background-experience",PROJ:"background-projects",EDU:"background-education",ADD:"background-additional-info",CERT:"background-certifications",LANG:"background-languages",PTNT:"background-patents",PUBL:"background-publications",HNRS:"background-honors",TSTS:"background-test-scores",ORGS:"background-organizations",COUR:"background-courses",VLNT:"background-volunteering"},E=LI.getQueryStringParam("targetSection");
+function d(al){var ak=$(al.target);
+W(al);
+if(ak.closest("a.edit-profile").length){al.preventDefault();
+z()
+}else{if(ak.closest("a.done-edit-profile").length){al.preventDefault();
+g()
+}}}function W(aq){var al=$(aq.target),ao,au,an,ak,ap,ar,am;
+ao=al.closest("[data-page-key]");
+if(ao.length){an=ao.data("page-type");
+ak=ao.data("page-key");
+ap=ao.data("page-tracking-info");
+au=ao.data("trk")
+}else{au=al.closest("[data-trk]").data("trk")
+}if(au&&!ak){if(!$.isPlainObject(au)){au={componentKey:au}
+}if(al.hasClass("btn-primary")){if(!$.isPlainObject(au.infoParams)){au.infoParams={}
+}ar=al.parents("form").find("[data-infoparams]");
+if(ar.length){am=ar.data("infoparams");
+for(var at in am){if(am.hasOwnProperty(at)){au.infoParams[at]=am[at]
+}}}}y(au.componentKey,au["source"],au.infoParams)
+}if(ak&&window.ProfilePageTracking){window.ProfilePageTracking(an,ak,au,ap)
+}}function af(){return n.hasClass("edit-my-profile")
+}function z(am,an){ad=ad||$("#hopscotch-bubble");
+if(ad&&ad.length){ad.hide()
+}if(K&&K.length){K.hide()
+}var ao=$(".profile-actions.view-actions",n),ak=$(".profile-actions.edit-actions",n),al="fast";
+$(".button-menu",ao).fadeOut(al);
+f(h.RENDER_DEFERRED_SECTIONS);
+ao.fadeOut(al,function(){$.fn.ProfileEdit.showEditSections({success:function(){n.addClass("edit-my-profile");
+if(P){n.removeClass("profile-self-view-edit")
+}H();
+if(!am){f(h.SWITCH_EDIT)
+}else{f(h.SWITCH_EDIT_ON_LOAD)
+}if(an){ao.removeAttr("style")
+}else{ak.fadeIn(al,function(){ao.removeAttr("style");
+ak.removeAttr("style")
+})
+}if(!E){n.find(".edit-photo a").first().focus()
+}},error:function(){$.fn.ProfileEdit.showGlobalAlert(LI.i18n.get("unableToProcessRequest"),"error")
+}})
+});
+if(!am){document.title=LI.i18n.get("edit-mode-title")
+}}function g(){var am=$(".profile-actions.view-actions",n),ak=$(".profile-actions.edit-actions",n),al="fast";
+ad=ad||$("#hopscotch-bubble");
+f(h.BEFORE_SWITCH_VIEW);
+ak.fadeOut(al,function(){$.fn.ProfileEdit.hideAllForms();
+n.removeClass("edit-my-profile");
+if(P){n.addClass("profile-self-view-edit")
+}H();
+f(h.SWITCH_VIEW);
+am.fadeIn(al,function(){ak.removeAttr("style");
+am.removeAttr("style")
+});
+$(".button-menu",am).fadeIn(al);
+if(ad&&ad.length){window.hopscotch.showStep(window.hopscotch.getCurrStepNum());
+ad.show()
+}});
+n.find(".profile-actions .edit-profile").first().focus();
+document.title=LI.i18n.get("view-mode-title")
+}function U(ak){if(ak&&!$.isArray(ak)){ak=[ak]
+}return ak
+}function ab(al,am){var ak=U(al);
+if(ak&&am){r.bind(ak.join(" "),am)
+}}function aj(al,am){var ak=U(al);
+if(ak&&am){r.unbind(ak.join(" "),am)
+}}function f(al,am){var ak=U(al);
+if(ak){r.trigger(ak.join(" "),am)
+}}function B(al){var ak=window.ProfilePageTracking,am;
+if(ak){am="optimize-started-prof_promo-"+(af()?V:v);
+ak(s,Q,am)
+}j(al)
+}function j(al){var ak=A();
+ak.addStartListener(x);
+ak.addStopListener(e);
+ak.run(al)
+}function Y(al){var ak=A();
+ak.addStartListener(a);
+ak.addStopListener(l);
+ak.addPromoTransitionListener(w);
+ak.runAsPromo(al)
+}function H(){var al=$(".background-section"),ak;
+al.each(function(an){var ao=$(this),am=$(":first",ao);
+am.removeClass("last");
+if(am.is(":visible")){ak=am
+}});
+if(ak&&ak.length){ak.addClass("last")
+}}function M(){n.find(".done-edit-profile").hide();
+n.find(".save-exit-profile").show()
+}function m(){n.find(".done-edit-profile").show();
+n.find(".save-exit-profile").hide()
+}function y(ak,am,al){var an={};
+if(window.WebTracking&&WebTracking.trackUserAction){if(am){an["source"]=am
+}if(al){if($.isPlainObject(al)){$.each(al,function(ao,ap){an[ao]=ap
+})
+}else{an["info"]=al
+}}WebTracking.trackUserAction(ak,an)
+}}function x(){var ak=$("#wrapper");
+if(!ak.hasClass(u)){ak.addClass(u)
+}o=af()&&!!$.fn.ProfileEdit;
+if(o){$.fn.ProfileEdit.handleDoneEdit();
+g()
+}I.removeStartListener(x)
+}function e(){var al=window.ProfilePageTracking,an,ak,am=$("#wrapper");
+am.removeClass(u);
+ak={"vid":$.fn.Profile.memberId,"nd":"-1","lnl":"f"};
+if(o){z()
+}else{g()
+}if(al){an=o?V:v;
+al(s,an,null,ak)
+}I.removeStopListener(e)
+}function a(){var ak=$("#wrapper");
+if(!ak.hasClass(L)){ak.addClass(L)
+}I.removeStartListener(a)
+}function l(){$("#wrapper").removeClass(L);
+I.removeStopListener(l)
+}function w(){var ak=window.ProfilePageTracking,al;
+x();
+l();
+I.addStopListener(e);
+if(ak){al="optimize-started-prof_promo-"+(af()?V:v);
+ak(s,Q,al)
+}I.removePromoTransitionListener(w)
+}function A(){var an="guided-edit-promo",ak,ap,am,al,ao;
+if(!I){ak=$("#"+an);
+if(ak.length===0){ap=$("#"+N);
+if(ap.length===0){return
+}ak=$('<div id="'+an+'"></div>').prependTo(ap)
+}al=$(".guided-editing");
+am=$(".background-content");
+if(am.length===0){am=$(document.body)
+}I=new LI.GuidedEdit.Manager({guidedEditStartUrl:b,sectionUrl:k,sectionManager:LI.Profile2.Section,$sectionParent:am,$formInsertPoint:ak,$stepsInsertPoint:al});
+LI.GuidedEdit.Instance=I
+}return I
+}function X(){var al=$("#background"),an,ak,am,ao;
+if(al&&al.length){am=$(document).scrollTop();
+ao=J.height();
+an=al.offset().top;
+ak=al.height();
+if((am+ao)>=(an+ak)){return true
+}}return false
+}function D(ao){var an=ao.embedIds,aw=ao.fizzyFunc,al=ao.embedCallback,av=ao.deferCompleteCallback,ak=ao.completeOnFirst||false,au,am,at=0,ar=[],aq=0;
+$.each(an,function(ax,ay){if($("script#"+ay).length){ar.push(ay)
+}});
+aq=ar.length;
+if(window.fs){am=function(ay,ax){au.add(function(){al(ax);
+if(ak===true||++at===aq){au.disable();
+if(av){av()
+}}})
+};
+au=$.Callbacks("once memory");
+for(var ap=0;
+ap<aq;
+ap++){aw(ar[ap],am)
+}}return au
+}function O(an){var ak,al,am;
+al=function(ao){if(ao){ao.embed()
+}};
+am=function(){$.fn.ProfileConnections.init();
+if(an){an()
+}};
+ak=D({embedIds:G,fizzyFunc:window.fs.custom,embedCallback:al,deferCompleteCallback:am});
+return ak
+}function c(an){var al,ak,am;
+ak=function(ao){if(ao){ao.xhr()
+}};
+am=function(){if(an){an()
+}};
+al=D({embedIds:C,fizzyFunc:window.fs.customXHR,embedCallback:ak,deferCompleteCallback:am,completeOnFirst:true});
+return al
+}function ag(al){var ak="scroll.deferRender",am;
+if(al===true){ac=c(function(){var an=O(function(){f(h.DEFERRED_SECTIONS_RENDERED)
+});
+if(an){an.fire()
+}J.off(ak)
+})
+}else{p=O(function(){J.off(ak);
+f(h.DEFERRED_SECTIONS_RENDERED)
+})
+}am=function(){if(ac){ac.fire()
+}if(p){p.fire()
+}};
+J.on(ak,am);
+J.on("load",function(){setTimeout(function(){if(X()){am();
+J.off(ak)
+}},10)
+})
+}function t(an){var ak,al,am;
+al=function(ao){if(ao){ao.embed()
+}};
+am=function(){var ao=$("#background");
+if(ao.length){LI.Controls.parseFragment(ao[0]);
+H()
+}$.fn.ProfileBackground.init();
+if($.fn.ProfileEditPosition){$.fn.ProfileEditPosition.init()
+}if($.fn.ProfileEditProject){$.fn.ProfileEditProject.init()
+}if(an){an()
+}};
+ak=D({embedIds:[ah],fizzyFunc:window.fs.custom,embedCallback:al,deferCompleteCallback:am});
+return ak
+}function i(ak){ae=t();
+if(typeof ak!=="number"||!ak){J.on("load",q)
+}else{setTimeout(q,ak)
+}}function Z(){if(ac){ac.fire()
+}if(p){p.fire()
+}}function q(){if(ae){ae.fire()
+}}function ai(){Z();
+q()
+}function F(){var ak=$(".scroll-target").filter(":visible"),al;
+if(ak.length){al=ak.first().offset().top-85;
+$("html,body").animate({scrollTop:al},"slow")
+}}function R(ak){v=ak
+}(function aa(){H();
+F();
+n.on("click",d);
+$("#callout-overlay").on("click",W);
+ab(h.FORM_MODIFIED,M);
+ab([h.FORM_CLOSED,h.SWITCH_VIEW],m);
+ab(h.RENDER_DEFERRED_SECTIONS,ai);
+$.fn.Profile={EVENTS:h,SECTION_IDS:S,switchToEdit:z,switchToView:g,startGuidedEdit:j,startGuidedEditAsPromo:Y,startGuidedEditFromEndorsements:B,fixSectionDividers:H,deferRenderOnScroll:ag,deferRenderOnLoad:i,bind:ab,unbind:aj,fire:f,track:y,scrollToFirstTarget:F,setViewPagekey:R}
+}())
+});$(function(){var d=$("#groups-container");
+function b(h){var g=$(h.target);
+if(g.closest(".see-more").length){h.preventDefault();
+a(g)
+}if(g.closest(".see-less").length){h.preventDefault();
+f(g)
+}if(g.closest(".edit-tools-module").length){h.preventDefault();
+$(".groups-container").slideToggle("slow");
+d.toggleClass("expanded-view")
+}}function c(g){$(".groups-container").slideDown("slow")
+}function f(g){g.closest("ul").find(".see-less").addClass("hidden");
+g.closest("ul").find(".hidden-groups").addClass("hidden");
+g.closest("ul").find(".see-more").removeClass("hidden")
+}function a(g){g.closest("ul").find(".see-more").addClass("hidden");
+g.closest("ul").find(".hidden-groups").removeClass("hidden");
+g.closest("ul").find(".see-less").removeClass("hidden")
+}(function e(){var g=$.fn.Profile;
+if(d.length){d.on("click",b);
+g.bind(g.EVENTS.SWITCH_VIEW,c)
+}}())
+});LI.define("WebTrackClickTracking");
+LI.WebTrackClickTracking=function(c,b){this.config=b;
+function a(e){var g=YEvent.getTarget(e).id,f=this.config.trackingInfo,d=YAHOO.lang;
+if(!d.isNull(f[g])&&!d.isUndefined(f[g])){WebTracking.trackUserAction(f[g].trackingCode,"",true)
+}}if(WebTracking){YEvent.on(c,"click",a,null,this)
+}};LI.define("WaffleTracking");
+LI.WaffleTracking=function(){var a=this;
+YEvent.on(document,"click",function(d){var c=YEvent.getTarget(d),b;
+try{do{b=LI.getDataAttribute(c,"trk-code");
+if(b&&WebTracking){WebTracking.trackUserAction(b,a.getParamsList(c),true)
+}}while(c=LI.getAncestorByDataAttribute(c,"li-trk-code"))
+}catch(d){}})
+};
+LI.WaffleTracking.prototype.getParamsList=function(a){return{}
+};
+LI.define("waffleTracking");
+LI.waffleTracking=new LI.WaffleTracking();(function(e){var g=window.jQuery||e("jquery"),b=LIModules.imports("BaseControl"),f=LIModules.imports("Events"),d="dropdown:open",c="dropdown:close",h="dropdown:newitems",a=b.extend(function(i){var p="click",j="mouseover",t="mouseout",n="mousedown",l="hover",o="keydown",m=13,k=27,r=32,u=38,s=40,q={activeClass:"active",eventType:p,mercyTime:400,triggerSelector:null,dropdownMenuClass:"dropdown"};
+return{beforeDecoration:function(){this._$body=g("body");
+this._mouseDown=false;
+this._mouseoutTimer=0;
+this._config=g.extend({},q,this._config);
+this._isOpen=false;
+this._$listItems=[];
+this._$trigger={};
+this._$dropMenu={};
+this._currentItemIndex=-1;
+if(this._config.triggerSelector){this._$trigger=this._$el.find(this._config.triggerSelector)
+}else{this._$trigger=this._$el.children("a");
+if(this._$trigger.length===0){this._$trigger=this._$el.children("button")
+}}this._$dropMenu=this._$trigger.next();
+this._populateListItems();
+this._bootstrapAria()
+},attachEventListeners:function(){if(this._config.eventType===l){this._$el.on(j,this._handleMouseOverEvent).on(t,this._handleMouseOutEvent)
+}this._$trigger.on(n,this._handleMousedownEvent).on(p,this._handleClickEvent);
+this._$body.on(p,this._handleBodyClick);
+this._$el.on(o,this._handleKeyEvent);
+f.on(h,this.bootstrapNewItems)
+},_bootstrapAria:function(){this._$trigger.attr({"tabindex":0,"aria-haspopup":true,"role":"button"});
+this._bootstrapListItems();
+this._$dropMenu.attr("tabindex",-1);
+if(this._$listItems.length){this._$dropMenu.attr("role","menu")
+}},_bootstrapListItems:function(){this._$listItems.each(function(){g(this).attr({"tabindex":0,"role":"menuitem"})
+})
+},bootstrapNewItems:function(v){this._populateListItems();
+this._bootstrapListItems()
+},_populateListItems:function(){this._$listItems=this._$dropMenu.find("li, dd, dt")
+},_handleBodyClick:function(v){if(this._isOpen&&this._$el.has(v.target).length===0){this.close()
+}},_focusNext:function(){var v=this._$listItems.length;
+if(v){if(this._currentItemIndex<(v-1)){this._currentItemIndex++
+}else{this._currentItemIndex=0
+}this._$listItems[this._currentItemIndex].focus()
+}},_focusPrevious:function(){var v=this._$listItems.length;
+if(v){if(this._currentItemIndex>0){this._currentItemIndex--
+}else{this._currentItemIndex=(v-1)
+}this._$listItems[this._currentItemIndex].focus()
+}},_handleKeyEvent:function(v){var w=v.which,x=v.target;
+switch(w){case m:if(g(x).is(this._$trigger)){this._$trigger.click()
+}break;
+case r:if(g(x).is(this._$trigger)){v.preventDefault();
+this._$trigger.click()
+}break;
+case k:if(this._isOpen){this.close()
+}break;
+case s:v.preventDefault();
+this._focusNext();
+break;
+case u:v.preventDefault();
+this._focusPrevious();
+break;
+default:break
+}},open:function(){var v=this._config.activeClass;
+if(!this._isOpen){this._$el.addClass(v);
+this._$dropMenu.focus();
+this._$el.trigger(d,this);
+this._isOpen=true
+}},close:function(){this._$el.removeClass(this._config.activeClass);
+if(this._mouseoutTimer){window.clearTimeout(this._mouseoutTimer)
+}this._$trigger.focus();
+this._$el.trigger(c,this);
+this._isOpen=false;
+this._currentItemIndex=-1
+},_handleMousedownEvent:function(v){this._mouseDown=true
+},_handleClickEvent:function(v){var w;
+this._mouseDown=false;
+if(this._config.eventType===l){w=v.target.href;
+if(w&&w.indexOf("#")!==0){return
+}}v.preventDefault();
+v.stopPropagation();
+if(this._isOpen){this.close()
+}else{this.open()
+}},_handleMouseOverEvent:function(v){window.clearTimeout(this._mouseoutTimer);
+this.open()
+},_handleMouseOutEvent:function(v){var x=this._config.mercyTime,w=this;
+if(x>0){this._mouseoutTimer=window.setTimeout(function(){w.close()
+},x)
+}else{w.close()
+}}}
+});
+a.EVENTS={OPEN:d,CLOSE:c,NEW:h};
+LIModules.exports("Dropdown",a)
+}(window.require));

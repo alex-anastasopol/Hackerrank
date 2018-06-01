@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="DashboardReport" pageWidth="2000" pageHeight="970"  isIgnorePagination="true" orientation="Landscape" columnWidth="1800" 
+ leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	
+	<style name="Arial_Normal" isDefault="false" isStyledText="true" isBlankWhenNull="true" fontName="Arial" fontSize="12" 
+					pdfFontName="Helvetica" pdfEncoding="Cp1252" />
+	
+	<style name="Arial_Bold" isDefault="false" isStyledText="true" isBlankWhenNull="true" fontName="Arial" fontSize="12" isBold="true" 
+				pdfFontName="Helvetica" pdfEncoding="Cp1252" />
+
+	<parameter name="CommunityName" class="java.lang.String"/>
+	<parameter name="TotalOrders" class="java.lang.String"/>
+	<parameter name="FromDate" class="java.lang.String"/>
+	<parameter name="ToDate" class="java.lang.String"/>
+	<parameter name="States" class="java.lang.String"/>
+	<parameter name="Counties" class="java.lang.String"/>
+	<parameter name="Abstractors" class="java.lang.String"/>
+	<parameter name="Agents" class="java.lang.String"/>
+	<parameter name="Agencies" class="java.lang.String"/>
+	<parameter name="Statuses" class="java.lang.String"/>
+	<parameter name="FindField" class="java.lang.String"/>
+	<parameter name="FindValue" class="java.lang.String"/>
+
+	<field name="abstractor" class="java.lang.String"/>
+	<field name="owners" class="java.lang.String"/>
+	<field name="agent" class="java.lang.String"/>
+	<field name="county" class="java.lang.String"/>
+	<field name="propertyAddress" class="java.lang.String"/>
+	<field name="tsOrder" class="java.lang.String"/>
+	<field name="tsDone" class="java.lang.String"/>
+	<field name="totalTimeWorked" class="java.lang.String"/>
+	<field name="tsrFileId" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="note" class="java.lang.String"/>
+	<field name="logs" class="java.lang.String"/>
+	
+	<title>
+		<band height="600">
+			<textField>
+				<reportElement style="Arial_Bold" x="0" y="0" width="1050" height="40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Orders Report"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="50" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Date interval: From " + $P{FromDate} + " To " + $P{ToDate}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="100" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["States: " + $P{States}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="150" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Counties: " + $P{Counties}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="200" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Abstractors: " + $P{Abstractors}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="250" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Agencies: " + $P{Agencies}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="300" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Agents: " + $P{Agents}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="350" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Statuses: " + $P{Statuses}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="400" width="1050" height="15">
+					<printWhenExpression><![CDATA[$P{FindField} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Find filter: " + $P{FindField} + " / " + $P{FindValue}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="450" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Orders from community: " + $P{CommunityName}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<textField>
+				<reportElement style="Arial_Normal" x="0" y="500" width="1050" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Total Number of Orders: "+ $P{TotalOrders}]]>
+				</textFieldExpression>
+			</textField>
+			
+		</band>
+	</title>
+	
+	<pageHeader>
+		<band height="50">
+			<!--1-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="0" y="1" width="100" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Abstractor"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--2-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="100" y="1" width="200" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Owners"]]>
+				</textFieldExpression>
+			</textField>
+
+			<!--3-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="300" y="1" width="100" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Agent"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--4-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="400" y="1" width="100" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["County"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--5-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="500" y="1" width="100" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Property Address"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--6-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="600" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["TS Order"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--7-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="650" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["TS Done"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--8-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="700" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Total Time Worked"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--9-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="750" y="1" width="150" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["TSR File ID"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--10-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="900" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Status"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--11-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="950" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Note"]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--12-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Bold" stretchType="RelativeToBandHeight" x="1000" y="1" width="50" height="40" mode="Transparent"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA["Logs"]]>
+				</textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	
+	<detail>
+		<band height="50" >
+			<!--1-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single" >
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{abstractor}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--2-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="100" y="0" width="200" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{owners}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--3-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="300" y="0" width="100" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{agent}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--4-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="400" y="0" width="100" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{county}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--5-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="500" y="0" width="100" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{propertyAddress}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--6-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="600" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{tsOrder}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--7-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="650" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{tsDone}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--8-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="700" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{totalTimeWorked}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--9-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="750" y="0" width="150" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{tsrFileId}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--10-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="900" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{status}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--11-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="950" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{note}]]>
+				</textFieldExpression>
+			</textField>
+			
+			<!--12-->
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Arial_Normal" stretchType="RelativeToBandHeight" x="1000" y="0" width="50" height="40" isRemoveLineWhenBlank="false" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">
+					<![CDATA[$F{logs}]]>
+				</textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	
+</jasperReport>

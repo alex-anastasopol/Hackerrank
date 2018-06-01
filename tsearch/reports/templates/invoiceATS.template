@@ -1,0 +1,31 @@
+<html>
+<body>
+<font size="4"><br>
+<b>Advantage Title Solutions, LLC</b></font><br>
+<font size="2">1980 Post Oak Blvd., #500,<br>
+Houston, TX  77056<br>
+Phone Number: 1.866.547.8392<br>
+E-mail: <a href="mailto:atssupport@propertyinfo.com ">atssupport@propertyinfo.com </a><br>
+<a href="http://www.advantagetitlesearch.com " target="_blank">www.advantagetitlesearch.com</a></font><br>
+<hr>
+<p></p>
+<p></p>
+<p><br>
+  Invoice to: @@commName@@ <br>
+  @@commAddress@@ <br> 
+  @@commPhone@@<br> 
+  @@commEmail@@
+</p>
+<p>From : @@startInterval@@ To : @@endInterval@@ <br>
+
+  Issued : @@invTimestamp@@ <br>
+  Product : Advanced Title Search<sup><font size="1">TM</font></sup><br><br><br>
+  @@tableSubTotal@@</p>
+<p><br>
+  <font size="4">Pay to: <b>Advantage Title Solutions, LLC</b></font><br>
+  1980 Post Oak Blvd., #500,<br>
+  Houston, TX  77056<br>
+</p>
+@@invDetails@@
+</body>
+</html>

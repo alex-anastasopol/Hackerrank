@@ -1,0 +1,14 @@
+<TR class=row1> 
+	<TD height="21" align="center">@@abstractorColumn@@</TD>
+	<TD align="center">&nbsp;@@ownerName@@&nbsp;</TD>
+	<TD align="center">&nbsp;@@agentName@@&nbsp;</TD>
+	<TD align="center">@@propertyFullCounty@@</TD>
+	<TD align="center">@@propertyAddress@@&nbsp;</TD>
+	<TD align="center">@@hour@@</TD>
+	<TD align="center">&nbsp;@@fileId@@&nbsp;</TD>
+<!--<TD align="center">&nbsp;@@sendTo@@&nbsp;</TD>-->
+<!--<TD align="center">&nbsp;@@productName@@&nbsp;</TD>-->
+	<TD align="center">&nbsp;@@searchFee@@&nbsp;</TD>
+<!--<TD align="center">&nbsp;@@imageCount@@&nbsp;</TD>-->
+	<TD align="center">&nbsp;@@dataSource@@&nbsp;</TD>
+</TR>
