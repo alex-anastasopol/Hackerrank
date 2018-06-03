@@ -1,3 +1,5 @@
+package regex.application.detect.emails;
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
