@@ -1,3 +1,4 @@
+package regex.applications.detect.emails;
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -27,12 +28,6 @@ public class Solution {
 				sentences[i] = sc.nextLine();
 			}
 
-			int wordCount = Integer.valueOf(sc.nextLine());
-			String[] words = new String[wordCount];
-			for (int i = 0; i < wordCount; i++) {
-				words[i] = sc.nextLine();
-			}
-			
 			for (int i = 0; i < wordCount; i++) {
 				System.out.println(getNoOfOccurrences(words[i], sentences));
 			}
