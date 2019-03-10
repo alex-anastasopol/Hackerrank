@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class SockMerchant {
@@ -6,13 +8,30 @@ public class SockMerchant {
 	// Complete the sockMerchant function below.
 	static int sockMerchant(int n, int[] ar) {
 		int noOfPairs = 0;
+		Map<Integer, Integer> valueToOccurenceCount = new HashMap<Integer, Integer>();
+		for (int i = 0; i < n; i++) {
+			Integer occurrences = valueToOccurenceCount.get(ar[i]);
+			if (occurrences == null) {
+				occurrences = 1;
+			} else {
+				occurrences++;
+			}
+
+			valueToOccurenceCount.put(ar[i], occurrences);
+		}
+
+		for (Integer value : valueToOccurenceCount.keySet()) {
+			Integer noOfOccurrences = valueToOccurenceCount.get(value);
+			noOfPairs += noOfOccurrences / 2;
+		}
+
 		return noOfPairs;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
-		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+		BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
 		int n = scanner.nextInt();
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -20,7 +39,7 @@ public class SockMerchant {
 		int[] ar = new int[n];
 
 		String[] arItems = scanner.nextLine().split(" ");
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		//scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
 		for (int i = 0; i < n; i++) {
 			int arItem = Integer.parseInt(arItems[i]);
