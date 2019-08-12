@@ -10,29 +10,51 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the repeatedString function below.
-    static long repeatedString(String s, long n) {
+	// Complete the repeatedString function below.
+   static long repeatedString(String s, long n) {
+       int idxStringLength = 0;
+       long numberOfAsInS = 0;
+       long totalNumberOfAs = 0;
+       while (idxStringLength < s.length()) {
+           if (s.charAt(idxStringLength++) == 'a') {
+               numberOfAsInS++;
+           }
+       }
 
+       totalNumberOfAs = numberOfAsInS * (n / s.length());
 
-    }
+       long remainder = n % s.length();
+       int idx = -1;
+       if (remainder > 0) {
+          // System.out.println("remainder: "+remainder);
+           while (++idx < remainder) {
+              // System.out.println("idx="+idx+"; s.charAt(idx) == 'a'");
+               if (s.charAt(idx) == 'a') {
+                   totalNumberOfAs++;
+               }
+           }
+       }
 
-    private static final Scanner scanner = new Scanner(System.in);
+       return totalNumberOfAs;
+   }
 
-    public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+	private static final Scanner scanner = new Scanner(System.in);
 
-        String s = scanner.nextLine();
+	public static void main(String[] args) throws IOException {
+		BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        long n = scanner.nextLong();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		String s = scanner.nextLine();
 
-        long result = repeatedString(s, n);
+		long n = scanner.nextLong();
+		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
+		long result = repeatedString(s, n);
 
-        bufferedWriter.close();
+		bufferedWriter.write(String.valueOf(result));
+		bufferedWriter.newLine();
 
-        scanner.close();
-    }
+		bufferedWriter.close();
+
+		scanner.close();
+	}
 }
