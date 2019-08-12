@@ -33,8 +33,8 @@ public class SockMerchant {
 	public static void main(String[] args) throws IOException {
 		BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int n = scanner.nextInt();
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		int n = Integer.parseInt(scanner.nextLine());
+		//scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
 		int[] ar = new int[n];
 
