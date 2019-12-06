@@ -2,29 +2,35 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SquaresAttackedByQueen {
-//	static Logger logger = Logger.getLogger("Logger");
-	
+	// static Logger logger = Logger.getLogger("Logger");
+	static String obstaclesStr = "";
+
 	// Complete the queensAttack function below.
 	static int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles) {
-		//logger.log(Level.SEVERE, "entered queensAttack");
-		return countAttackedOnRow(n, r_q, c_q, obstacles) 
-				+ countAttackedOnCol(n, r_q, c_q, obstacles)
-				+ countAttackedOnDiagNWtoSE(n, r_q, c_q, obstacles) 
-				+ countAttackedOnDiagNEtoSW(n, r_q, c_q, obstacles);
+		for (int i = 0; i < obstacles.length; i++) {
+			obstaclesStr += obstacles[i][0] + "_" + obstacles[i][1] + ".";
+		}
+		// logger.log(Level.SEVERE, "entered queensAttack");
+		return countAttackedOnRow(n, r_q, c_q, obstacles) + countAttackedOnCol(n, r_q, c_q, obstacles)
+				+ countAttackedOnDiagNWtoSE(n, r_q, c_q, obstacles) + countAttackedOnDiagNEtoSW(n, r_q, c_q, obstacles);
 	}
 
 	static boolean squareIsNotObstacle(int r, int c, int[][] obstacles) {
-		for (int i = 0; i < obstacles.length; i++) {
-			if (obstacles[i][0] == r && obstacles[i][1] == c) {
-				return false;
-			}
+		// for (int i = 0; i < obstacles.length; i++) {
+		// if (obstacles[i][0] == r && obstacles[i][1] == c) {
+		// return false;
+		// }
+		// }
+		if (obstaclesStr.indexOf(r + "_" + c) >= 0) {
+			return false;
 		}
-
 		return true;
 	}
 
@@ -37,7 +43,7 @@ public class SquaresAttackedByQueen {
 		for (int i = r_q + 1; i <= n && squareIsNotObstacle(i, c_q, obstacles); i++) {
 			count++;
 		}
-		//logger.log(Level.SEVERE, "countAttackedOnRow -> " + count);
+		// logger.log(Level.SEVERE, "countAttackedOnRow -> " + count);
 		return count;
 	}
 
@@ -50,7 +56,7 @@ public class SquaresAttackedByQueen {
 		for (int i = c_q + 1; i <= n && squareIsNotObstacle(r_q, i, obstacles); i++) {
 			count++;
 		}
-		//logger.log(Level.SEVERE, "countAttackedOnCol -> " + count);
+		// logger.log(Level.SEVERE, "countAttackedOnCol -> " + count);
 		return count;
 	}
 
@@ -63,7 +69,7 @@ public class SquaresAttackedByQueen {
 		for (int i = r_q + 1, j = c_q + 1; i <= n && j <= n && squareIsNotObstacle(i, j, obstacles); i++, j++) {
 			count++;
 		}
-		//logger.log(Level.SEVERE, "countAttackedOnDiagNWtoSE -> " + count);
+		// logger.log(Level.SEVERE, "countAttackedOnDiagNWtoSE -> " + count);
 		return count;
 	}
 
@@ -76,7 +82,7 @@ public class SquaresAttackedByQueen {
 		for (int i = r_q + 1, j = c_q - 1; i <= n && j > 0 && squareIsNotObstacle(i, j, obstacles); i++, j--) {
 			count++;
 		}
-		//logger.log(Level.SEVERE, "countAttackedOnDiagNEtoSW -> " + count);
+		// logger.log(Level.SEVERE, "countAttackedOnDiagNEtoSW -> " + count);
 		return count;
 	}
 
