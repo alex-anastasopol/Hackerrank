@@ -1,12 +1,17 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SquaresAttackedByQueen {
-
+//	static Logger logger = Logger.getLogger("Logger");
+	
 	// Complete the queensAttack function below.
 	static int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles) {
+		//logger.log(Level.SEVERE, "entered queensAttack");
 		return countAttackedOnRow(n, r_q, c_q, obstacles) 
 				+ countAttackedOnCol(n, r_q, c_q, obstacles)
 				+ countAttackedOnDiagNWtoSE(n, r_q, c_q, obstacles) 
@@ -23,58 +28,62 @@ public class SquaresAttackedByQueen {
 		return true;
 	}
 
-	static int countAttackedOnRow(int n, int r_q, int c_q, int[][] obstacles) {
+	static int countAttackedOnCol(int n, int r_q, int c_q, int[][] obstacles) {
 		int count = 0;
-		for (int i = r_q - 1; i >= 0 && squareIsNotObstacle(i, c_q, obstacles); i--) {
+		for (int i = r_q - 1; i > 0 && squareIsNotObstacle(i, c_q, obstacles); i--) {
 			count++;
 		}
 
-		for (int i = r_q + 1; i < n && squareIsNotObstacle(i, c_q, obstacles); i++) {
+		for (int i = r_q + 1; i <= n && squareIsNotObstacle(i, c_q, obstacles); i++) {
 			count++;
 		}
+		//logger.log(Level.SEVERE, "countAttackedOnRow -> " + count);
 		return count;
 	}
 
-	static int countAttackedOnCol(int n, int r_q, int c_q, int[][] obstacles) {
+	static int countAttackedOnRow(int n, int r_q, int c_q, int[][] obstacles) {
 		int count = 0;
-		for (int i = c_q - 1; i >= 0 && squareIsNotObstacle(r_q, i, obstacles); i--) {
+		for (int i = c_q - 1; i > 0 && squareIsNotObstacle(r_q, i, obstacles); i--) {
 			count++;
 		}
 
-		for (int i = r_q + 1; i < n && squareIsNotObstacle(r_q, i, obstacles); i++) {
+		for (int i = c_q + 1; i <= n && squareIsNotObstacle(r_q, i, obstacles); i++) {
 			count++;
 		}
+		//logger.log(Level.SEVERE, "countAttackedOnCol -> " + count);
 		return count;
 	}
 
 	static int countAttackedOnDiagNWtoSE(int n, int r_q, int c_q, int[][] obstacles) {
 		int count = 0;
-		for (int i = r_q - 1, j = c_q - 1; i >= 0 && j >= 0 && squareIsNotObstacle(i, j, obstacles); i--) {
+		for (int i = r_q - 1, j = c_q - 1; i > 0 && j > 0 && squareIsNotObstacle(i, j, obstacles); i--, j--) {
 			count++;
 		}
 
-		for (int i = r_q + 1, j = c_q + 1; i < n && j < n && squareIsNotObstacle(i, j, obstacles); i--) {
+		for (int i = r_q + 1, j = c_q + 1; i <= n && j <= n && squareIsNotObstacle(i, j, obstacles); i++, j++) {
 			count++;
 		}
+		//logger.log(Level.SEVERE, "countAttackedOnDiagNWtoSE -> " + count);
 		return count;
 	}
 
 	static int countAttackedOnDiagNEtoSW(int n, int r_q, int c_q, int[][] obstacles) {
 		int count = 0;
-		for (int i = r_q - 1, j = c_q + 1; i >= 0 && j < n && squareIsNotObstacle(i, j, obstacles); i--) {
+		for (int i = r_q - 1, j = c_q + 1; i > 0 && j <= n && squareIsNotObstacle(i, j, obstacles); i--, j++) {
 			count++;
 		}
 
-		for (int i = r_q + 1, j = c_q - 1; i < n && j >= 0 && squareIsNotObstacle(i, j, obstacles); i--) {
+		for (int i = r_q + 1, j = c_q - 1; i <= n && j > 0 && squareIsNotObstacle(i, j, obstacles); i++, j--) {
 			count++;
 		}
+		//logger.log(Level.SEVERE, "countAttackedOnDiagNEtoSW -> " + count);
 		return count;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
-		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+		BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
 		String[] nk = scanner.nextLine().split(" ");
 
